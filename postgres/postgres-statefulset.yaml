@@ -23,7 +23,7 @@ spec:
           env:
             - name: POSTGRES_PASSWORD
               value: pass123
-            - name: POSTGRES_USER
+            - name: POSTGRES_USER #8a mporouse na mpei san secret
               value: dbuser
             - name: POSTGRES_DB
               value: dsdb
@@ -50,14 +50,14 @@ spec:
             failureThreshold: 6
           resources:
             requests:
-              cpu: 100m
+              cpu: 100m #1/10 tis CPU
               memory: 256Mi
             limits:
               cpu: 500m
               memory: 512Mi
   # One PersistentVolumeClaim per pod, created automatically: data-postgres-0.
   # It is NOT deleted when the StatefulSet is deleted, so the data survives.
-  volumeClaimTemplates:
+  volumeClaimTemplates: #tha mporouse na itan ksexoristo arxeio
     - metadata:
         name: data
         labels:
