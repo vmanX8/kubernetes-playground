@@ -22,7 +22,10 @@ spec:
           image: postgres:16
           env:
             - name: POSTGRES_PASSWORD
-              value: pass123
+              valueFrom:
+                configMapKeyRef:
+                  name: pg-config
+                  key: password
             - name: POSTGRES_USER #8a mporouse na mpei san secret
               value: dbuser
             - name: POSTGRES_DB
